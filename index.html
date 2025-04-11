@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from solid-ios.pages.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 11 Apr 2025 09:21:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4A90E2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description"
+        content="Learn and understand the SOLID principles in iOS development. This page provides clear explanations and Swift code examples with expandable sections for each principle.">
+    <meta name="keywords"
+        content="SOLID principles, software development, Swift, design patterns, iOS, mobile development">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <title>SOLID Principles in iOS using Swift</title>
+</head>
+
+<body>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('Service Worker registration failed:', err);
+                    });
+            });
+        }
+
+    </script>
+    <div class="container">
+        <h1>SOLID Principles</h1>
+
+        <div class="rule">
+            <button class="rule-header">Single Responsibility Principle (SRP)</button>
+            <div class="rule-brief">
+                A class should have only one reason to change, meaning it should only have one responsibility.
+            </div>
+            <div class="rule-content">
+                <pre><code>
+// Follows SRP
+class UserManager {
+    func createUser() {
+        // Logic to create user
+    }
+}
+
+class EmailManager {
+    func sendEmail() {
+        // Logic to send email
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="rule">
+            <button class="rule-header">Open/Closed Principle (OCP)</button>
+            <div class="rule-brief">
+                Classes should be open for extension but closed for modification.
+            </div>
+            <div class="rule-content">
+                <pre><code>
+// Follows OCP
+protocol Shape {
+    func area() -> Double
+}
+
+class Rectangle: Shape {
+    func area() -> Double {
+        return width * height
+    }
+}
+
+class Circle: Shape {
+    func area() -> Double {
+        return .pi * radius * radius
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="rule">
+            <button class="rule-header">Liskov Substitution Principle (LSP)</button>
+            <div class="rule-brief">
+                Subtypes should be substitutable for their base types without altering the correctness of the program.
+            </div>
+            <div class="rule-content">
+                <pre><code>
+// Follows LSP
+class Bird {
+    func move() {
+        // General movement logic
+    }
+}
+
+class Penguin: Bird {
+    override func move() {
+        swim()
+    }
+
+    func swim() {
+        // Logic for swimming
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="rule">
+            <button class="rule-header">Interface Segregation Principle (ISP)</button>
+            <div class="rule-brief">
+                No client should be forced to depend on interfaces it does not use.
+            </div>
+            <div class="rule-content">
+                <pre><code>
+// Follows ISP
+protocol Worker {
+    func work()
+}
+
+protocol Eater {
+    func eat()
+}
+
+class Robot: Worker {
+    func work() {
+        // Robot working logic
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+
+        <div class="rule">
+            <button class="rule-header">Dependency Inversion Principle (DIP)</button>
+            <div class="rule-brief">
+                High-level modules should not depend on low-level modules. Both should depend on abstractions.
+            </div>
+            <div class="rule-content">
+                <pre><code>
+// Follows DIP
+protocol Storage {
+    func saveData()
+}
+
+class FileStorage: Storage {
+    func saveData() {
+        // Logic to save data to a file
+    }
+}
+
+class DataManager {
+    let storage: Storage
+
+    init(storage: Storage) {
+        self.storage = storage
+    }
+
+    func save() {
+        storage.saveData()
+    }
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+
+<!-- Mirrored from solid-ios.pages.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 11 Apr 2025 09:21:22 GMT -->
+</html>
